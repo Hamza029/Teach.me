@@ -4,27 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-<!--    components here-->
+    tools:context=".SignUpActivity">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:id="@+id/relLayout2ID"
-        android:padding="30dp">
-
-        <TextView
-            android:id="@+id/logoTextID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="60dp"
-            android:fontFamily="@font/amita"
-            android:text="Teach.ME"
-            android:textColor="@color/yellow2"
-            android:textSize="60sp" />
+        android:padding="20dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -38,14 +25,13 @@
             app:hintTextColor="@color/yellow"
             app:boxStrokeColor="@color/yellow"
             android:id="@+id/emailInputTextLayoutID"
-            android:layout_below="@+id/logoTextID"
             app:startIconDrawable="@drawable/ic_baseline_email_24">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/emailInputTextID"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,6 +46,8 @@
             app:endIconMode="password_toggle"
             app:hintTextColor="@color/yellow"
             app:boxStrokeColor="@color/yellow"
+            app:helperText="Must be minimum 6 characters long"
+            app:counterEnabled="true"
             android:id="@+id/passwordInputTextLayoutID"
             android:layout_below="@+id/emailInputTextLayoutID"
             android:layout_marginTop="16dp"
@@ -74,7 +62,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/loginBtnID"
+            android:id="@+id/signupBtnID"
             style="Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,19 +71,9 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/round_btn_style1"
             android:backgroundTint="@color/yellow"
-            android:text="LOGIN"
+            android:text="SINGUP"
+            android:layout_marginBottom="10dp"
             app:icon="@drawable/ic_baseline_login_24" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/createAccountBtnID"
-            android:layout_below="@+id/loginBtnID"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="CREATE ACCOUNT"
-            android:textColor="@color/cyan"/>
 
     </RelativeLayout>
 

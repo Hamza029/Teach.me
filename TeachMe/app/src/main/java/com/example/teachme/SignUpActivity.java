@@ -1,14 +1,20 @@
 package com.example.teachme;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -16,12 +22,16 @@ public class SignUpActivity extends AppCompatActivity {
     private TextInputEditText emailInputText, passwordInputText;
     private Button signUpBtn;
 
+    private FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
         initializeIDs();
+
+        auth = FirebaseAuth.getInstance();
 
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,14 +70,24 @@ public class SignUpActivity extends AppCompatActivity {
         if(!emailError) {
             emailInputTextLayout.setError(null);
         }
-        else {
-            return;
-        }
         if(!passError) {
             passwordInputTextLayout.setError(null);
         }
-        else {
+        if(emailError || passError) {
             return;
         }
+
+        // register user
+        auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()) {
+                    Toast.makeText(SignUpActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(SignUpActivity.this, "Registration failed!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

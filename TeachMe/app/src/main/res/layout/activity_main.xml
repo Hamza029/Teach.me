@@ -4,9 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/yellow">
 
 <!--    components here-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="273dp"
+        android:background="@drawable/white_bg"/>
 
     <RelativeLayout
         android:id="@+id/relLayout2ID"
@@ -23,8 +29,9 @@
             android:layout_marginBottom="60dp"
             android:fontFamily="@font/berkshire_swash"
             android:text="Teach.ME"
-            android:textColor="@color/yellow2"
-            android:textSize="60sp" />
+            android:textColor="@color/black"
+            android:textSize="60sp"
+            android:visibility="invisible"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailInputTextLayoutID"
@@ -36,9 +43,10 @@
             app:boxBackgroundMode="outline"
             app:boxCornerRadiusTopEnd="10dp"
             app:boxCornerRadiusTopStart="10dp"
-            app:boxStrokeColor="@color/yellow"
+            app:boxStrokeColor="@color/black"
             app:endIconMode="clear_text"
-            app:hintTextColor="@color/yellow"
+            app:hintTextColor="@color/black"
+            app:boxStrokeWidth="2dp"
             app:startIconDrawable="@drawable/ic_baseline_email_24">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -60,9 +68,10 @@
             app:boxBackgroundMode="outline"
             app:boxCornerRadiusBottomEnd="10dp"
             app:boxCornerRadiusBottomStart="10dp"
-            app:boxStrokeColor="@color/yellow"
+            app:boxStrokeColor="@color/black"
             app:endIconMode="password_toggle"
-            app:hintTextColor="@color/yellow"
+            app:hintTextColor="@color/black"
+            app:boxStrokeWidth="2dp"
             app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -80,11 +89,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/passwordInputTextLayoutID"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/round_btn_style1"
-            android:backgroundTint="@color/yellow"
+            android:backgroundTint="@color/black"
             android:text="LOGIN"
-            app:icon="@drawable/ic_baseline_login_24" />
+            app:elevation="4dp"
+            app:icon="@drawable/ic_baseline_login_24"
+            app:rippleColor="@color/white" />
 
         <Button
             android:id="@+id/createAccountBtnID"
@@ -95,7 +106,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="CREATE ACCOUNT"
-            android:textColor="@color/cyan" />
+            android:textColor="@color/testcolorblue" />
 
     </RelativeLayout>
 

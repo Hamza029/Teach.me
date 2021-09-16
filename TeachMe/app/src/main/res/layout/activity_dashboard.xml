@@ -21,21 +21,23 @@
         <androidx.cardview.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:id="@+id/bankcardId"
+            android:id="@+id/teachersCardID"
             android:layout_width="160dp"
             android:layout_height="190dp"
             android:layout_margin="10dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:background="@drawable/cerclebackgroundpurple"
-                    android:src="@drawable/ic_baseline_how_to_reg_24"
-                    android:padding="10dp"/>
+                    android:padding="10dp"
+                    android:src="@drawable/ic_baseline_how_to_reg_24" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -43,11 +45,12 @@
                     android:layout_marginTop="10dp"
                     android:text="Teachers"
                     android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/lightgray"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:background="@color/lightgray" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -62,20 +65,23 @@
         <androidx.cardview.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
+            android:id="@+id/studentsCardID"
             android:layout_width="160dp"
             android:layout_height="190dp"
             android:layout_margin="10dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:background="@drawable/cerclebackgroundpink"
-                    android:src="@drawable/ic_baseline_laptop_mac_24"
-                    android:padding="10dp"/>
+                    android:padding="10dp"
+                    android:src="@drawable/ic_baseline_laptop_mac_24" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -83,11 +89,12 @@
                     android:layout_marginTop="10dp"
                     android:text="Students"
                     android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/lightgray"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:background="@color/lightgray" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -110,20 +117,23 @@
         <androidx.cardview.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
+            android:id="@+id/editProfileCardID"
             android:layout_width="160dp"
             android:layout_height="190dp"
             android:layout_margin="10dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:background="@drawable/cerclebackgroundgreen"
-                    android:src="@drawable/ic_baseline_person_24"
-                    android:padding="10dp"/>
+                    android:padding="10dp"
+                    android:src="@drawable/ic_baseline_person_24" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -131,11 +141,12 @@
                     android:layout_marginTop="10dp"
                     android:text="Profile"
                     android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/lightgray"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:background="@color/lightgray" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -150,6 +161,7 @@
         <androidx.cardview.widget.CardView
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
+            android:id="@+id/editAcademicsCardID"
             android:layout_width="160dp"
             android:layout_height="190dp"
             android:layout_margin="10dp">

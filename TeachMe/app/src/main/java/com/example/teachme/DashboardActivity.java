@@ -1,6 +1,7 @@
 package com.example.teachme;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class DashboardActivity extends AppCompatActivity {
 
     private ExtendedFloatingActionButton logoutBtn;
+    private CardView editProfileCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +23,21 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         logoutBtn = findViewById(R.id.logoutBtnID);
+        editProfileCard = findViewById(R.id.editProfileCardID);
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 logoutUser();
+            }
+        });
+
+        editProfileCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, EditProfileActivity.class);
+                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(DashboardActivity.this).toBundle();
+                startActivity(intent, bundle);
             }
         });
 
@@ -36,5 +48,6 @@ public class DashboardActivity extends AppCompatActivity {
         Intent intent = new Intent(DashboardActivity.this, MainActivity.class);
         Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(DashboardActivity.this).toBundle();
         startActivity(intent, bundle);
+        finish();
     }
 }

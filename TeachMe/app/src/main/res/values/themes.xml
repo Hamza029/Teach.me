@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.TeachMe" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/yellow</item>
+        <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryVariant">@color/yellow</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -12,6 +12,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+<!--        transparent status bar-->
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
+<!--        <item name="android:windowTranslucentNavigation">true</item>-->
 
 <!--        this is for enabling transitions-->
         <item name="android:windowActivityTransitions">true</item>

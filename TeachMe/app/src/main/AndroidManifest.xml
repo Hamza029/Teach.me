@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TeachMe">
         <activity
+            android:name=".EditProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".DashboardActivity"
             android:exported="true" />
         <activity

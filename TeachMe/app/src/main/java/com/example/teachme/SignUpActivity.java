@@ -15,6 +15,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -82,6 +84,18 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
+
+                    FirebaseDatabase DB = FirebaseDatabase.getInstance();
+
+                    // get reference of "users"
+                    DatabaseReference dRef = DB.getReference().child("users");
+
+                    String userKey = dRef.push().getKey();
+
+                    User user = new User(email, userKey, "", "", "", "", "", "", "", 0, false, false);
+
+                    dRef.child(userKey).setValue(user);
+
                     Toast.makeText(SignUpActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
                 }
                 else {

@@ -1,6 +1,7 @@
 package com.example.teachme;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -9,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -20,11 +22,19 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextInputEditText emailInputText, passwordInputText;
     private Button loginBtn, createAccountBtn;
+    public static String user_email_id;
+    public static String user_key;
 
     private FirebaseAuth auth;
 
@@ -93,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
 //                    Toast.makeText(MainActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                    user_email_id = email;
+                    getUserKey();
                     Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
                     Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle();
                     startActivity(intent, bundle);
@@ -104,6 +116,52 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void getUserKey() {
+
+        // Realtime database testing
+        FirebaseDatabase DB = FirebaseDatabase.getInstance();
+
+        // get reference of "users"
+        DatabaseReference dRef = DB.getReference().child("users");
+
+        // check user
+        Query checkUser = dRef.orderByChild("email").equalTo(user_email_id);
+
+        // do query
+        checkUser.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                if(snapshot.exists()) {
+                    String str = snapshot.getKey();
+                    user_key = str;
+                    Toast.makeText(MainActivity.this, user_key, Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
 
     // transparent status bar
     public static void setWindowFlag(Activity activity, final int bits, boolean on) {

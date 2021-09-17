@@ -4,182 +4,279 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditProfileActivity"
-    android:padding="20dp">
+    tools:context=".EditProfileActivity">
 
-<!--    work on progress-->
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/selectImgBtnID"
-            style="?attr/materialButtonOutlinedStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="46dp"
-            android:layout_toRightOf="@+id/profileImgID"
-            android:text="UPLOAD IMAGE"
-            android:textColor="@color/black"
-            app:icon="@drawable/ic_baseline_cloud_upload_24"
-            app:iconTint="@color/black" />
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/profileImgID"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_baseline_person_outline_24"
-            app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fullNameTextInputLayoutID"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/profileImgID"
-            android:layout_marginTop="12dp"
-            android:hint="Full Name"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            app:boxStrokeColor="@color/darkblue"
-            app:endIconMode="clear_text"
-            app:helperText="Required"
-            app:hintTextColor="@color/darkblue"
-            app:startIconDrawable="@drawable/ic_baseline_person_24">
+            android:padding="20dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/fullNameTextInputID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/institutionTextInputLayoutID"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/fullNameTextInputLayoutID"
-            android:layout_marginTop="12dp"
-            android:hint="Institution Name"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            app:boxStrokeColor="@color/yellow2"
-            app:endIconMode="clear_text"
-            app:helperText="Required"
-            app:hintTextColor="@color/yellow2"
-            app:startIconDrawable="@drawable/ic_baseline_school_24">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/institutionTextInputID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phoneTextInputLayoutID"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/institutionTextInputLayoutID"
-            android:layout_marginTop="12dp"
-            android:hint="Phone Number"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            app:boxStrokeColor="@color/yellow2"
-            app:endIconMode="clear_text"
-            app:helperText="Required"
-            app:hintTextColor="@color/yellow2"
-            app:startIconDrawable="@drawable/ic_baseline_phone_android_24">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phoneTextInputID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ageTextInputLayoutID"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/phoneTextInputLayoutID"
-            android:layout_marginTop="12dp"
-            android:hint="Age"
-            app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="10dp"
-            app:boxCornerRadiusBottomStart="10dp"
-            app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp"
-            app:boxStrokeColor="@color/yellow2"
-            app:endIconMode="clear_text"
-            app:helperText="Required"
-            app:hintTextColor="@color/yellow2">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ageTextInputID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:id="@+id/genderTextID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/phoneTextInputLayoutID"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="16dp"
-            android:layout_toRightOf="@id/ageTextInputLayoutID"
-            android:text="Gender"
-            android:textSize="16sp" />
-
-        <RadioGroup
-            android:id="@+id/genderRadioGroupID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/genderTextID"
-            android:layout_marginStart="20dp"
-            android:layout_toRightOf="@+id/ageTextInputLayoutID"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radioMaleID"
+            <Button
+                android:id="@+id/selectImgBtnID"
+                style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:buttonTint="@color/yellow2"
-                android:padding="10dp"
-                android:text="male" />
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="46dp"
+                android:layout_toRightOf="@+id/profileImgID"
+                android:text="UPLOAD IMAGE"
+                android:textColor="@color/black"
+                app:icon="@drawable/ic_baseline_cloud_upload_24"
+                app:iconTint="@color/black" />
 
-            <RadioButton
-                android:id="@+id/radioFemaleID"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profileImgID"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_baseline_person_outline_24"
+                app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fullNameTextInputLayoutID"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profileImgID"
+                android:layout_marginTop="12dp"
+                android:hint="Full Name"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/darkblue"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/darkblue"
+                app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fullNameTextInputID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phoneTextInputLayoutID"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fullNameTextInputLayoutID"
+                android:layout_marginTop="12dp"
+                android:hint="Phone Number"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/black"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/ic_baseline_phone_android_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phoneTextInputID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/genderTextID"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:buttonTint="@color/yellow2"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/phoneTextInputLayoutID"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Gender"
+                android:textSize="16sp" />
+
+            <RadioGroup
+                android:id="@+id/genderRadioGroupID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genderTextID"
+                android:layout_marginStart="16dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioMaleID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/black"
+                    android:padding="10dp"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:id="@+id/radioFemaleID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:buttonTint="@color/black"
+                    android:padding="10dp"
+                    android:text="Female" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/roleTextID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/genderRadioGroupID"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Role"
+                android:textSize="16sp" />
+
+            <CheckBox
+                android:id="@+id/teacherCheckBoxID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/roleTextID"
+                android:layout_marginStart="16dp"
+                android:buttonTint="@color/black"
                 android:padding="10dp"
-                android:text="Female" />
+                android:text="Tutor" />
 
-        </RadioGroup>
+            <CheckBox
+                android:id="@+id/studentCheckBoxID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/roleTextID"
+                android:layout_toRightOf="@id/teacherCheckBoxID"
+                android:buttonTint="@color/black"
+                android:padding="10dp"
+                android:text="Student" />
 
-    </RelativeLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/adressTextInputLayoutID"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/teacherCheckBoxID"
+                android:layout_marginTop="12dp"
+                android:hint="Adress"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/black"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/ic_baseline_home_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/adressTextInputID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/institutionTextInputLayoutID"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/adressTextInputLayoutID"
+                android:layout_marginTop="12dp"
+                android:hint="Institution"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/black"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/ic_baseline_school_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/institutionTextInputID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/academicTextInputLayoutID"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/institutionTextInputLayoutID"
+                android:layout_marginTop="12dp"
+                android:hint="Year / Semester / Class"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/black"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/ic_baseline_book_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/academicTextInputID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/subjectTextInputLayoutID"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/academicTextInputLayoutID"
+                android:layout_marginTop="12dp"
+                android:hint="Department / Subject / Group"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxStrokeColor="@color/black"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/ic_baseline_subject_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/subjectTextInputID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/updateProfileBtnID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/subjectTextInputLayoutID"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center|bottom"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="32dp"
+                android:backgroundTint="@color/yellow"
+                android:text="UPDATE"
+                app:fabSize="normal"
+                app:icon="@drawable/ic_baseline_done_24"
+                app:rippleColor="@color/design_default_color_primary_dark" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 
 </RelativeLayout>

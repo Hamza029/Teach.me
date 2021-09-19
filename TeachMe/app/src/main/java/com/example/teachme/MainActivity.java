@@ -29,6 +29,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextInputEditText emailInputText, passwordInputText;
@@ -38,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
 
+    public static ArrayList<User> students = new ArrayList<>();
+    public static ArrayList<User> teachers = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         // initialize all IDs
         initializeIDs();
+
+        initializeArrayLists();
 
         // transparent status bar
         if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
@@ -78,6 +85,56 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loginUser();
+            }
+        });
+    }
+
+    private void initializeArrayLists() {
+
+//        ArrayList<User> users = new ArrayList<>();
+
+        // get database instance
+        FirebaseDatabase DB = FirebaseDatabase.getInstance();
+
+        // get reference of "users"
+        DatabaseReference dRef = DB.getReference().child("users");
+
+        // traverse all users
+        dRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                String userKey = snapshot.getKey();
+//                String username = snapshot.child("name").getValue().toString();
+//                Toast.makeText(ShowTeacher.this, userKey + " -> " + username, Toast.LENGTH_SHORT).show();
+                String name = snapshot.child("name").getValue().toString();
+                if(!name.isEmpty()) {
+                    String institution = snapshot.child("institution").getValue().toString();
+                    String address = snapshot.child("adress").getValue().toString();
+                    String imageUrl = snapshot.child("imageURL").getValue().toString();
+                    User user = new User(name, institution, imageUrl, address, userKey);
+                    teachers.add(user);
+                    Toast.makeText(MainActivity.this, teachers.size()+"", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }

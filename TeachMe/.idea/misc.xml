@@ -12,8 +12,11 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/Lab Project/Teach.me/TeachMe/app/src/main/res/layout/activity_edit_profile.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Lab Project/Teach.me/TeachMe/app/src/main/res/layout/activity_login.xml" value="0.209375" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Lab Project/Teach.me/TeachMe/app/src/main/res/layout/activity_main.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Lab Project/Teach.me/TeachMe/app/src/main/res/layout/activity_show_teacher.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Lab Project/Teach.me/TeachMe/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/Lab Project/Teach.me/TeachMe/app/src/main/res/layout/activity_signup.xml" value="0.209375" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Lab Project/Teach.me/TeachMe/app/src/main/res/layout/activity_user_rec_view_adapter.xml" value="0.18611111111111112" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/Lab Project/Teach.me/TeachMe/app/src/main/res/layout/user_list_item.xml" value="0.25" />
       </map>
     </option>
   </component>

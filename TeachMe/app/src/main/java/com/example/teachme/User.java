@@ -6,6 +6,14 @@ public class User {
     private int gender;
     private boolean isTutor, isStudent;
 
+    public User(String name, String institution, String imageURL, String adress, String key) {
+        this.name = name;
+        this.institution = institution;
+        this.imageURL = imageURL;
+        this.adress = adress;
+        this.key = key;
+    }
+
     public User(String email, String key, String name, String institution, String imageURL, String phone, String adress, String academic, String subject, int gender, boolean isTutor, boolean isStudent) {
 
         this.email = email;

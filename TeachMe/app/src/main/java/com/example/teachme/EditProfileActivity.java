@@ -51,6 +51,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private String userKey;
     private String userEmail;
+    private String imageUrl;
 
     int gender = 0; // 1-male, 2-female
     boolean isTutor = false, isStudent = false;
@@ -164,6 +165,7 @@ public class EditProfileActivity extends AppCompatActivity {
         DatabaseReference dRef = DB.getReference().child("users");
 
         User user = new User(MainActivity.user_email_id, MainActivity.user_key, name, institution, "", phone, address, academic, subject, gender, isTutor, isStudent);
+        user.setImageURL(imageUrl);
 
         dRef.child(MainActivity.user_key).setValue(user);
 //        Toast.makeText(EditProfileActivity.this, userKey, Toast.LENGTH_SHORT).show();
@@ -226,6 +228,7 @@ public class EditProfileActivity extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             Log.d("download uri", "onSuccess: "+uri.toString()); // check on logcat - debug
+                                            imageUrl = uri.toString();
                                         }
                                     });
 

@@ -54,7 +54,7 @@ public class UserRecViewAdapter extends RecyclerView.Adapter<UserRecViewAdapter.
             @Override
             public void onClick(View v) {
                 // click listener
-                Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "clicked --> " + users.get(position).getKey(), Toast.LENGTH_SHORT).show();
             }
         });
     }

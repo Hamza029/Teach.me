@@ -4,7 +4,8 @@ public class User {
 
     private String email, key, name, institution, imageURL, phone, adress, academic, subject;
     private int gender;
-    private boolean isTutor, isStudent;
+    private boolean tutor, student;
+    private String isStudent, isTeacher, userGender;
 
     public User(String name, String institution, String imageURL, String adress, String key) {
         this.name = name;
@@ -14,7 +15,7 @@ public class User {
         this.key = key;
     }
 
-    public User(String email, String key, String name, String institution, String imageURL, String phone, String adress, String academic, String subject, int gender, boolean isTutor, boolean isStudent) {
+    public User(String email, String key, String name, String institution, String imageURL, String phone, String adress, String academic, String subject, int gender, boolean tutor, boolean student) {
 
         this.email = email;
         this.key = key;
@@ -26,8 +27,8 @@ public class User {
         this.academic = academic;
         this.subject = subject;
         this.gender = gender;
-        this.isTutor = isTutor;
-        this.isStudent = isStudent;
+        this.tutor = tutor;
+        this.student = student;
     }
 
     public String getEmail() {
@@ -110,19 +111,39 @@ public class User {
         this.gender = gender;
     }
 
-    public boolean isTutor() {
-        return isTutor;
-    }
-
     public void setTutor(boolean tutor) {
-        isTutor = tutor;
+        this.tutor = tutor;
     }
 
     public boolean isStudent() {
-        return isStudent;
+        return student;
     }
 
     public void setStudent(boolean student) {
-        isStudent = student;
+        this.student = student;
+    }
+
+    public String getIsStudent() {
+        return isStudent;
+    }
+
+    public void setIsStudent(String isStudent) {
+        this.isStudent = isStudent;
+    }
+
+    public String getIsTeacher() {
+        return isTeacher;
+    }
+
+    public void setIsTeacher(String isTeacher) {
+        this.isTeacher = isTeacher;
+    }
+
+    public String getUserGender() {
+        return userGender;
+    }
+
+    public void setUserGender(String userGender) {
+        this.userGender = userGender;
     }
 }

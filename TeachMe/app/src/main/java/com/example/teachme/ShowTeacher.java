@@ -53,19 +53,21 @@ public class ShowTeacher extends AppCompatActivity {
 
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()) {
                     String userKey = dataSnapshot.getKey();
-//                String username = snapshot.child("name").getValue().toString();
-//                Toast.makeText(ShowTeacher.this, userKey + " -> " + username, Toast.LENGTH_SHORT).show();
                     String name = dataSnapshot.child("name").getValue().toString();
-                    if(!name.isEmpty()) {
+                    String role = dataSnapshot.child("isTeacher").getValue().toString();
+//                String username = snapshot.child("name").getValue().toString();
+//                    Toast.makeText(ShowTeacher.this, userKey + " ---> " + name, Toast.LENGTH_SHORT).show();
+                    if(!name.isEmpty() && role.equals("true")) {
                         String institution = dataSnapshot.child("institution").getValue().toString();
                         String address = dataSnapshot.child("adress").getValue().toString();
                         String imageUrl = dataSnapshot.child("imageURL").getValue().toString();
                         User user = new User(name, institution, imageUrl, address, userKey);
+//                        User user = new User(name, institution, "", address, userKey);
                         users.add(user);
 //                        Toast.makeText(ShowTeacher.this, users.size()+"", Toast.LENGTH_SHORT).show();
                     }
                 }
-
+//
                 adapter.notifyDataSetChanged();
 
             }
@@ -76,22 +78,15 @@ public class ShowTeacher extends AppCompatActivity {
             }
         });
 
-        // traverse all users
+
+
+//         searching from all users
 //        dRef.addChildEventListener(new ChildEventListener() {
 //            @Override
 //            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 //                String userKey = snapshot.getKey();
-////                String username = snapshot.child("name").getValue().toString();
-////                Toast.makeText(ShowTeacher.this, userKey + " -> " + username, Toast.LENGTH_SHORT).show();
-//                String name = snapshot.child("name").getValue().toString();
-//                if(!name.isEmpty()) {
-//                    String institution = snapshot.child("institution").getValue().toString();
-//                    String address = snapshot.child("adress").getValue().toString();
-//                    String imageUrl = snapshot.child("imageURL").getValue().toString();
-//                    User user = new User(name, institution, imageUrl, address, userKey);
-//                    users.add(user);
-//                    Toast.makeText(ShowTeacher.this, users.size()+"", Toast.LENGTH_SHORT).show();
-//                }
+//                String username = snapshot.child("name").getValue().toString();
+//                Toast.makeText(ShowTeacher.this, userKey + " -> " + username, Toast.LENGTH_SHORT).show();
 //            }
 //
 //            @Override

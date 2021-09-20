@@ -6,8 +6,7 @@
     android:gravity="center"
     android:layout_height="wrap_content"
     tools:context=".MainActivity"
-    android:id="@+id/parent"
-    android:background="#fff2cf">
+    android:id="@+id/parent">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"

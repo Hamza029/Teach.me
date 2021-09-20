@@ -94,6 +94,11 @@ public class SignUpActivity extends AppCompatActivity {
 
                     User user = new User(email, userKey, "", "", "", "", "", "", "", 0, false, false);
 
+                    user.setImageURL("");
+                    user.setIsStudent("");
+                    user.setIsTeacher("");
+                    user.setUserGender("");
+
                     dRef.child(userKey).setValue(user);
 
                     Toast.makeText(SignUpActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();

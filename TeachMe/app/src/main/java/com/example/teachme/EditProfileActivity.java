@@ -25,8 +25,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.ktx.Firebase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -44,17 +48,18 @@ public class EditProfileActivity extends AppCompatActivity {
     private Button updateProfileBtn;
     private ShapeableImageView profileImg;
     private Uri selectedImageUri;
-    private EditText fullNameText, phoneNumberText, adressText, institutionText, subjectText, academicText;
+    private TextInputEditText fullNameText, phoneNumberText, adressText, institutionText, subjectText, academicText;
     private RadioButton maleRadBtn, femaleRadBtn;
     private RadioGroup radGroup;
     private CheckBox tutorCheck, studentCheck;
 
     private String userKey;
     private String userEmail;
-    private String imageUrl;
+    private String imageUrl = "";
 
-    int gender = 0; // 1-male, 2-female
-    boolean isTutor = false, isStudent = false;
+    String gender = ""; // male or female
+    private boolean isTutor = false, isStudent = false;
+    private String tutor = "", student = "";
 //    boolean
 
     FirebaseStorage storage;
@@ -88,6 +93,8 @@ public class EditProfileActivity extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        setInformations();
+
 //        userKey = MainActivity.user_key;
 //        userEmail = MainActivity.user_email_id;
 //        Toast.makeText(EditProfileActivity.this, MainActivity.user_key, Toast.LENGTH_SHORT).show();
@@ -110,14 +117,14 @@ public class EditProfileActivity extends AppCompatActivity {
         maleRadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gender = 1;
+                gender = "male";
             }
         });
 
         femaleRadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gender = 2;
+                gender = "female";
             }
         });
 
@@ -128,6 +135,68 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setInformations() {
+
+//        Toast.makeText(EditProfileActivity.this, "key = " + MainActivity.user_key, Toast.LENGTH_SHORT).show();
+
+
+        FirebaseDatabase DB = FirebaseDatabase.getInstance();
+
+        // get reference of "users"
+        DatabaseReference dRef = DB.getReference().child("users");
+
+        DatabaseReference dRef2 = DB.getReference().child("users").child(MainActivity.user_key);
+        dRef2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()) {
+
+
+//                    String username= snapshot.child("username").getValue().toString();
+//                    Toast.makeText(EditProfileActivity.this, username, Toast.LENGTH_LONG).show();
+//                    emailText.setText(username);
+
+                    String name = snapshot.child("name").getValue().toString();
+                    if(!name.isEmpty()) {
+                        fullNameText.setText(name);
+
+//                        Toast.makeText(EditProfileActivity.this, name, Toast.LENGTH_SHORT).show();
+//                        fullNameText, phoneNumberText, adressText, institutionText, subjectText, academicText;
+                        phoneNumberText.setText(snapshot.child("phone").getValue().toString());
+                        adressText.setText(snapshot.child("adress").getValue().toString());
+                        institutionText.setText(snapshot.child("institution").getValue().toString());
+                        subjectText.setText(snapshot.child("subject").getValue().toString());
+                        academicText.setText(snapshot.child("academic").getValue().toString());
+                        String gender = snapshot.child("userGender").getValue().toString();
+                        Toast.makeText(EditProfileActivity.this, gender+"", Toast.LENGTH_SHORT).show();
+                        if(gender.equals("male")) {
+                            radGroup.check(R.id.radioMaleID);
+                        }
+                        else {
+                            radGroup.check(R.id.radioFemaleID);
+                        }
+                        String teacherStr = snapshot.child("isTeacher").getValue().toString();
+                        String studentStr = snapshot.child("isStudent").getValue().toString();
+                        if(teacherStr.equals("true")) {
+                            tutorCheck.setChecked(true);
+                        }
+                        if(studentStr.equals("true")) {
+                            studentCheck.setChecked(true);
+                        }
+                    }
+                }
+                else {
+                    Toast.makeText(EditProfileActivity.this, "not found", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void updateProfile() {
@@ -141,22 +210,27 @@ public class EditProfileActivity extends AppCompatActivity {
 
         if(tutorCheck.isChecked()) {
             isTutor = true;
+            tutor = "true";
 //            Toast.makeText(EditProfileActivity.this, "tutor", Toast.LENGTH_SHORT).show();
         }
         else {
             isTutor = false;
+            tutor = "false";
         }
         if(studentCheck.isChecked()) {
             isStudent = true;
+            student = "true";
         }
         else {
             isStudent = false;
+            student = "false";
         }
 
         if(name.isEmpty() || phone.isEmpty() || address.isEmpty() || institution.isEmpty()
-            || academic.isEmpty() || subject.isEmpty() || (!isTutor && !isStudent) || gender == 0) {
+            || academic.isEmpty() || subject.isEmpty() || (!isTutor && !isStudent) || gender.isEmpty()) {
             Toast.makeText(EditProfileActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
-            return;
+            // handle if something is empty
+//            return;
         }
 
         FirebaseDatabase DB = FirebaseDatabase.getInstance();
@@ -164,8 +238,11 @@ public class EditProfileActivity extends AppCompatActivity {
         // get reference of "users"
         DatabaseReference dRef = DB.getReference().child("users");
 
-        User user = new User(MainActivity.user_email_id, MainActivity.user_key, name, institution, "", phone, address, academic, subject, gender, isTutor, isStudent);
+        User user = new User(MainActivity.user_email_id, MainActivity.user_key, name, institution, "", phone, address, academic, subject, 0, isTutor, isStudent);
         user.setImageURL(imageUrl);
+        user.setUserGender(gender);
+        user.setIsTeacher(tutor);
+        user.setIsStudent(student);
 
         dRef.child(MainActivity.user_key).setValue(user);
 //        Toast.makeText(EditProfileActivity.this, userKey, Toast.LENGTH_SHORT).show();

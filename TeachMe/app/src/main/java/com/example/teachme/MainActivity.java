@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 if(snapshot.exists()) {
                     String str = snapshot.getKey();
                     user_key = str;
-                    Toast.makeText(MainActivity.this, user_key, Toast.LENGTH_LONG).show();
+//                    Toast.makeText(MainActivity.this, user_key, Toast.LENGTH_LONG).show();
                 }
             }
 

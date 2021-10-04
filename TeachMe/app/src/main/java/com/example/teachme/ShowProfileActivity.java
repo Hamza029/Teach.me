@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,7 +28,8 @@ public class ShowProfileActivity extends AppCompatActivity {
 
     private ImageView likeUserIcon;
     private TextView totalLikes, nameText, institutionText, emailText, phoneText, boroNamText;
-    private ImageView imgV, schV;
+    private ImageView schV;
+    private ShapeableImageView imgV;
 
     String clickedUserKey;
 

@@ -101,6 +101,9 @@ public class SignUpActivity extends AppCompatActivity {
 
                     dRef.child(userKey).setValue(user);
 
+                    DatabaseReference dRefLikes = DB.getReference().child("likes").child(userKey).child("testID");
+                    dRefLikes.setValue("false");
+
                     Toast.makeText(SignUpActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
                 }
                 else {

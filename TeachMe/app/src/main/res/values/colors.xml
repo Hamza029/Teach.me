@@ -10,6 +10,8 @@
     <color name="yellow">#FFD600</color>
     <color name="cyan">#00B8D4</color>
     <color name="yellow2">#FBC02D</color>
+    <color name="like_blue">#1E88E5</color>
+    <color name="gray">#3E3E3E</color>
 
     <color name="colorPrimary">#FFC107</color>
     <color name="colorPrimaryDark">#FFA000</color>

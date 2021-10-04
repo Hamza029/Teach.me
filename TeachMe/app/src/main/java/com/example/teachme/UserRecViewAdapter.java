@@ -1,6 +1,7 @@
 package com.example.teachme;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,11 +51,16 @@ public class UserRecViewAdapter extends RecyclerView.Adapter<UserRecViewAdapter.
         Glide.with(context).load(users.get(position).getImageURL())
                 .into(holder.imageV);
 
+        int pos = position;
+
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // click listener
-                Toast.makeText(context, "clicked --> " + users.get(position).getKey(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ShowProfileActivity.class);
+                intent.putExtra("clickedUserKey", users.get(pos).getKey());
+                context.startActivity(intent);
+                Toast.makeText(context, "clicked --> " + users.get(pos).getKey(), Toast.LENGTH_SHORT).show();
             }
         });
     }

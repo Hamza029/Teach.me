@@ -28,6 +28,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -47,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
         // initialize all IDs
         initializeIDs();
+
+//        FirebaseDatabase DB = FirebaseDatabase.getInstance();
+//        DatabaseReference dRef = DB.getReference().child("likes").child("jarLikeTarID").child("jeLikeDiseTarID");
+//        dRef.setValue("true");
+//        UserForLikes likeUser = new UserForLikes("true", "testID");
+
 
         // transparent status bar
         if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditScheduleActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/yellow">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="30dp"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingVertical="15dp"
+            android:background="#FFFAE4">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="20dp">
+
+                <CheckBox
+                    android:id="@+id/sundayCheckBoxID"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:buttonTint="@color/black"
+                    android:button="@null"
+                    android:background="?android:attr/listChoiceIndicatorMultiple"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/sundayCheckBoxID"
+                    android:text="Sunday"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="20dp">
+
+                <CheckBox
+                    android:id="@+id/mondayCheckBoxID"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:buttonTint="@color/black"
+                    android:button="@null"
+                    android:background="?android:attr/listChoiceIndicatorMultiple"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/mondayCheckBoxID"
+                    android:text="Monday"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="20dp">
+
+                <CheckBox
+                    android:id="@+id/tuesdayCheckBoxID"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:buttonTint="@color/black"
+                    android:button="@null"
+                    android:background="?android:attr/listChoiceIndicatorMultiple"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/tuesdayCheckBoxID"
+                    android:text="Tuesday"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="20dp">
+
+                <CheckBox
+                    android:id="@+id/wednesdayCheckBoxID"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:buttonTint="@color/black"
+                    android:button="@null"
+                    android:background="?android:attr/listChoiceIndicatorMultiple"
+                    android:padding="10dp"
+                    android:clickable="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/wednesdayCheckBoxID"
+                    android:text="Wednesday"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="20dp">
+
+                <CheckBox
+                    android:id="@+id/thursdayCheckBoxID"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:buttonTint="@color/black"
+                    android:button="@null"
+                    android:background="?android:attr/listChoiceIndicatorMultiple"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/thursdayCheckBoxID"
+                    android:text="Thursday"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="20dp">
+
+                <CheckBox
+                    android:id="@+id/fridayCheckBoxID"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:buttonTint="@color/black"
+                    android:button="@null"
+                    android:background="?android:attr/listChoiceIndicatorMultiple"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/fridayCheckBoxID"
+                    android:text="Friday"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="20dp">
+
+                <CheckBox
+                    android:id="@+id/saturdayCheckBoxID"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:buttonTint="@color/black"
+                    android:button="@null"
+                    android:background="?android:attr/listChoiceIndicatorMultiple"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/saturdayCheckBoxID"
+                    android:text="Saturday"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

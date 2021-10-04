@@ -50,9 +50,15 @@ public class MainActivity extends AppCompatActivity {
         initializeIDs();
 
 //        FirebaseDatabase DB = FirebaseDatabase.getInstance();
-//        DatabaseReference dRef = DB.getReference().child("likes").child("jarLikeTarID").child("jeLikeDiseTarID");
-//        dRef.setValue("true");
-//        UserForLikes likeUser = new UserForLikes("true", "testID");
+//        DatabaseReference dRef = DB.getReference().child("schedule").child("jarScheduleTarID");
+////        WeekDays days = new WeekDays("false", "false", "false", "false", "false", "false", "false");
+//        dRef.child("sunday").setValue("false");
+//        dRef.child("monday").setValue("false");
+//        dRef.child("tuesday").setValue("false");
+//        dRef.child("wednesday").setValue("false");
+//        dRef.child("thursday").setValue("false");
+//        dRef.child("friday").setValue("false");
+//        dRef.child("saturday").setValue("false");
 
 
         // transparent status bar

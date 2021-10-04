@@ -118,10 +118,11 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_launcher_background"
-                    android:layout_centerHorizontal="true"/>
+                    android:id="@+id/scheduleID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_baseline_calendar_today_60" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -130,7 +131,8 @@
                     android:fontFamily="sans-serif-black"
                     android:includeFontPadding="false"
                     android:text="Follow"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:visibility="gone"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,7 +140,8 @@
                     android:layout_centerHorizontal="true"
                     android:fontFamily="sans-serif-black"
                     android:text="200"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:visibility="gone"/>
 
 
 

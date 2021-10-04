@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TeachMe">
         <activity
+            android:name=".ShowScheduleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditScheduleActivity"
+            android:exported="true" />
+        <activity
             android:name=".ShowProfileActivity"
             android:exported="true" />
         <activity

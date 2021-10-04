@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class DashboardActivity extends AppCompatActivity {
 
     private ExtendedFloatingActionButton logoutBtn;
-    private CardView editProfileCard, teacherCardID, studentCard;
+    private CardView editProfileCard, teacherCardID, studentCard, editScheduleCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class DashboardActivity extends AppCompatActivity {
         editProfileCard = findViewById(R.id.editProfileCardID);
         teacherCardID = findViewById(R.id.teachersCardID);
         studentCard = findViewById(R.id.studentsCardID);
+        editScheduleCard = findViewById(R.id.editScheduleCardID);
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +57,15 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DashboardActivity.this, ShowStudent.class);
+                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(DashboardActivity.this).toBundle();
+                startActivity(intent, bundle);
+            }
+        });
+
+        editScheduleCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashboardActivity.this, EditScheduleActivity.class);
                 Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(DashboardActivity.this).toBundle();
                 startActivity(intent, bundle);
             }

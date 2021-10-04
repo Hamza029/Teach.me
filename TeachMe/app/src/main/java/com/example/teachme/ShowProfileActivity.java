@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,7 +27,7 @@ public class ShowProfileActivity extends AppCompatActivity {
 
     private ImageView likeUserIcon;
     private TextView totalLikes, nameText, institutionText, emailText, phoneText, boroNamText;
-    private ImageView imgV;
+    private ImageView imgV, schV;
 
     String clickedUserKey;
 
@@ -42,6 +44,7 @@ public class ShowProfileActivity extends AppCompatActivity {
         phoneText = findViewById(R.id.phoneID);
         imgV = findViewById(R.id.imgID);
         boroNamText = findViewById(R.id.boroNamID);
+        schV = findViewById(R.id.scheduleID);
 
         Bundle extras = getIntent().getExtras();
 
@@ -60,6 +63,16 @@ public class ShowProfileActivity extends AppCompatActivity {
                 setSingleLike(true);
                 countAndSetTotalLikes();
 //                DrawableCompat.setTint(likeUserIcon.getDrawable(), ContextCompat.getColor(getApplicationContext(), R.color.like_blue));
+            }
+        });
+
+        schV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShowProfileActivity.this, ShowScheduleActivity.class);
+                intent.putExtra("clickedUserKey", clickedUserKey);
+                Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(ShowProfileActivity.this).toBundle();
+                startActivity(intent, bundle);
             }
         });
     }

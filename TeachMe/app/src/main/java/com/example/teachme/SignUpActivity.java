@@ -104,6 +104,16 @@ public class SignUpActivity extends AppCompatActivity {
                     DatabaseReference dRefLikes = DB.getReference().child("likes").child(userKey).child("testID");
                     dRefLikes.setValue("false");
 
+                    DatabaseReference dRefS = DB.getReference().child("schedule").child(userKey);
+//                    WeekDays days = new WeekDays("false", "false", "false", "false", "false", "false", "false");
+                    dRefS.child("sunday").setValue("false");
+                    dRefS.child("monday").setValue("false");
+                    dRefS.child("tuesday").setValue("false");
+                    dRefS.child("wednesday").setValue("false");
+                    dRefS.child("thursday").setValue("false");
+                    dRefS.child("friday").setValue("false");
+                    dRefS.child("saturday").setValue("false");
+
                     Toast.makeText(SignUpActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
                 }
                 else {
